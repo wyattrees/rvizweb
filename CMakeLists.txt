@@ -15,10 +15,21 @@ include_directories(
 
 # Copy needed files to www build folder
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www)
+execute_process(
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www
+  COMMAND mkdir css
+)
+execute_process(
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www
+  COMMAND mkdir js
+)
 configure_file(package.json www/package.json COPYONLY)
 configure_file(index.html www/index.html COPYONLY)
 configure_file(bower.json www/bower.json COPYONLY)
 
+configure_file(css/mediapipe.css www/css/mediapipe.css COPYONLY)
+configure_file(css/wy.css www/css/wy.css COPYONLY)
+configure_file(js/mediapipe.js www/js/mediapipe.js COPYONLY)
 # Install webapp build tools
 execute_process(
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www
