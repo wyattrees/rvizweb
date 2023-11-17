@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>ros-rviz Demo</title>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <!-- mediapipe stuff -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/mediapipe.js" defer></script>
+    <link href="css/mediapipe.css>" rel="stylesheet">
+    <link href="css/wy.css" rel="stylesheet">
+    <!-- ros stuff -->
     <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
     <link rel="import" href="bower_components/ros-websocket/ros-websocket.html">
     <link rel="import" href="bower_components/ros-rviz/ros-rviz.html">
@@ -17,6 +26,23 @@
 
   </head>
   <body>
+    <h1>Hand landmark detection</h1>
+
+    <section id="demos" class="invisible">
+      <p></br>Click <b>enable webcam</b> below and grant access to the webcam if prompted to see hand landmark detection.</p>
+      <span class="wy-webcam-err-msg">Sorry, that didn't work</span>
+
+      <div id="liveView" class="videoView">
+        <button id="webcamButton" class="mdc-button mdc-button--raised">
+          <span class="mdc-button__ripple"></span>
+          <span class="mdc-button__label">ENABLE WEBCAM</span>
+        </button>
+        <div style="position: relative;">
+          <video id="webcam" style="position: abso" autoplay playsinline></video>
+          <canvas class="output_canvas" id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
+        </div>
+      </div>
+    </section>
     <ros-websocket id="websocket"></ros-websocket>
     <ros-rviz id="rviz"></ros-rviz>
   </body>
