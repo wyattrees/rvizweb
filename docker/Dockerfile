@@ -18,7 +18,11 @@ ARG rvizweb_branch=master
 RUN git clone https://github.com/wyattrees/rvizweb/ src/rvizweb -b ${rvizweb_branch}
 
 # Install ur5 package
-RUN git clone https://github.com/ros-industrial/universal_robot.git src/universal_robot -b kinetic-devel
+RUN git clone https://github.com/ros-industrial/universal_robot.git src/universal_robot -b kinetic
+
+# copy traj_manager
+COPY traj_manager /rvizweb_ws/src/traj_manager
+RUN chmod +x /rvizweb_ws/src/traj_manager/scripts/run_traj
 # Install other dependencies and build
 RUN rosdep install --from-paths src --ignore-src -r -y
 RUN . /opt/ros/kinetic/setup.sh && catkin_make install

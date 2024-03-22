@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+
+# torque_controller pkg is installed when catkin_make is run in catkin workspace
+# pylint: disable=import-error
+import traj_manager.publisher
+
+if __name__ == '__main__':
+    print("Starting traj manager")
+    traj_manager.publisher.main()

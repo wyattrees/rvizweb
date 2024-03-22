@@ -1,0 +1,10 @@
+rostopic pub -1 /arm_controller/command trajectory_msgs/JointTrajectory "header:
+  seq: 0
+  stamp:
+     secs: 0
+     nsecs: 0
+  frame_id: '' 
+joint_names: ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint',
+  'wrist_3_joint']
+points: [{positions: [1.5, 0, 0, 0, 0, 0], time_from_start: {secs: 1, nsecs: 0}}]"
+      

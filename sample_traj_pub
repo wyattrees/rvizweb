@@ -1,0 +1,40 @@
+rostopic pub -1 /arm_controller/follow_joint_trajectory/goal control_msgs/FollowJointTrajectoryActionGoal "header:
+  seq: 0
+  stamp:
+     secs: 0
+     nsecs: 0
+  frame_id: ''
+goal_id:
+  stamp:
+     secs: 0
+     nsecs: 0
+  id: 'test'
+goal:
+  trajectory:
+    header:
+      seq: 0
+      stamp:
+        secs: 0
+        nsecs: 0
+      frame_id: ''
+    joint_names: ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint',
+      'wrist_3_joint']
+    points:
+    - positions: [0.025, 0.025, 0.0011550089213461234, 0.0001812735639568075, -2.6730832719756847e-05, -7.3362496477713535e-06]
+
+      time_from_start: {secs: 1, nsecs: 0}
+  path_tolerance: [{name: 'shoulder_pan_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'shoulder_lift_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'elbow_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'wrist_1_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'wrist_2_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'wrist_3_joint', position: 0, velocity: 0, acceleration: 0},
+                  ]
+  goal_tolerance: [{name: 'shoulder_pan_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'shoulder_lift_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'elbow_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'wrist_1_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'wrist_2_joint', position: 0, velocity: 0, acceleration: 0},
+                  {name: 'wrist_3_joint', position: 0, velocity: 0, acceleration: 0},
+                  ]
+  goal_time_tolerance: {secs: 3, nsecs: 0}"
